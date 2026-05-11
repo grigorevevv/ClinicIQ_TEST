@@ -2,6 +2,7 @@
 .env
 .venv/
 init-db/
+pg_data/
 
 # Скрываем системные файлы Python и кэш
 __pycache__/
