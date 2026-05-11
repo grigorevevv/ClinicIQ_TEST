@@ -1,0 +1,10 @@
+# Do not commit secrets
+.env
+.venv/
+init-db/
+
+# Скрываем системные файлы Python и кэш
+__pycache__/
+*.pyc
+*/__pycache__/
+.venv/
