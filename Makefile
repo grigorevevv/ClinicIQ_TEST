@@ -23,7 +23,8 @@ up: prepare-dir download-dump
 init-superset:
 	@if [ ! -f $(MARKER_FILE) ]; then \
 	    echo "🔥 Создаем аналитические витрины (View) в базе данных..."; \
-		docker exec -i -e PGPASSWORD="admin" medical_db psql -U admin -d MIS < init-db/02-create-views.sql; \
+		docker exec -i -e PGPASSWORD="admin" medical_db psql -U admin -d MIS < SQL/02-create-views.sql; \
+		docker exec -i -e PGPASSWORD="admin" medical_db psql -U admin -d MIS < SQL/03-create-views.sql; \
 		echo "🔥 Запуск первичной настройки Superset (это займет около минуты)..."; \
 		docker exec superset_bi superset db upgrade; \
 		docker exec superset_bi superset fab create-admin --username admin --firstname Admin --lastname User --email admin@superset.com --password admin; \
